@@ -1,5 +1,8 @@
 import { useState } from 'react'
-
+import Header from './components/Header';
+import ReactDom from 'react-dom/client';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
 
 import './App.css'
 
@@ -8,7 +11,11 @@ function App() {
 
   return (
     <>
-      <h1>App title in app</h1>
+      <Header />
+      <Routes>
+      <Route path="/" element={<Home />} />
+
+      </Routes>
       {/* <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
