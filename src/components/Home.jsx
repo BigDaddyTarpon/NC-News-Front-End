@@ -12,8 +12,8 @@ function Home() {
       <h2>Welcome to the front page</h2>
       <p>
         {" "}
-        You can log in using the option above by simply clicking a user of your
-        choice!
+        If you have not loggd in, you can log in by clicking the 'logged in as'
+        button above, then simply clicking a user of your choice!
       </p>
       <p>
         {" "}

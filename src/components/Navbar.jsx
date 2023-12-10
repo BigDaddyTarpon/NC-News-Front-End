@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from 'react';
+import { UserContext, UserProvider } from '../contexts/UserContext';
 import popSound from "../assets/popSound.mp3";
+import { Link } from 'react-router-dom';
+import Articles from './Articles';
 
 function Navbar() {
   const [article, setArticle] = useState(false);
   const [topic, setTopic] = useState(false);
+  const { user, setUser } = useContext(UserContext);
 
   function popwithArticle() {
     new Audio(popSound).play();
@@ -13,6 +17,7 @@ function Navbar() {
 
   function popwithLogin() {
     new Audio(popSound).play();
+    
   }
 
   function popwithTopic() {
@@ -24,15 +29,15 @@ function Navbar() {
     <nav className="Navbar-grid-container">
       <button id="red-button" onClick={popwithArticle}>
         {" "}
-        Articles
+        <Link to="/articles"> Articles </Link>
       </button>
       <button id="white-button" onClick={popwithLogin}>
         {" "}
-        Logged in as "nobody"{" "}
+        <Link to="/users">Logged in as : {user}</Link>{" "}
       </button>
       <button id="blue-button" onClick={popwithTopic}>
         {" "}
-        Topics
+        <Link to="/topics">Topics </Link>
       </button>
     </nav>
   );
