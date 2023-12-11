@@ -25,7 +25,6 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/topics" element={<Topics />} />
-          <Route path="/users" element={<Users />} />
         </Routes>
       </UserProvider>
     </>
