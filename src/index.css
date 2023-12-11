@@ -23,6 +23,9 @@ nav a {
 #white-button {
   background-color: whitesmoke;
 }
+#grey-button {
+  background-color: rgb(225, 221, 221);
+}
 
 button {
   border-radius: 10px;
@@ -51,8 +54,7 @@ button:hover {
   margin: 2 rem;
   padding: 2 rem;
   display: grid;
-  grid-template-columns: 25% 50% 25%;
-  grid-auto-flow: column;
+  grid-template-columns: 25% 10% 40% 25%;
 }
 
 /* parchment style background to test 
