@@ -1,7 +1,18 @@
 .header {
   padding-right: 10px;
 }
+select:focus {
+  background-color: lightblue;
+  scale: 1.5;
+}
 
 .options-bar {
-  padding: 5px;
+  padding: 2px;
+}
+
+.Sticky-fixed-header-container {
+  position: sticky;
+    top: 0;
+    background-color: white;
+    /* needs to change when implement dark mode, e.g. black with white text */
 }
