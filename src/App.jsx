@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Article from "./components/Article"
 
-// import ReactDom from 'react-dom/client';
+
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 

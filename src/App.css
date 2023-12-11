@@ -12,9 +12,9 @@ select:focus {
 
 .Sticky-fixed-header-container {
   position: sticky;
-    top: 0;
-    background-color: white;
-    /* needs to change when implement dark mode, e.g. black with white text */
+  top: 0;
+  background-color: white;
+  /* needs to change when implement dark mode, e.g. black with white text */
 }
 
 .ListItemArticles {
@@ -28,11 +28,13 @@ select:focus {
   text-align: center;
   border-image: url(https://i.imgur.com/040pFDw.png) 20 / 20px round;
   list-style-type: none;
-  
 }
 
 .articleCard {
   border-style: double;
   border: 1 px;
-  
+}
+img {
+  height: auto;
+  width: 100%;
 }
