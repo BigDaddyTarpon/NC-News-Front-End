@@ -35,7 +35,7 @@ function Navbar() {
         <Link to="/articles"> Articles </Link>
       </button>
       <button id="grey-button" onClick={pop}>
-        <Link to="/">H</Link>
+        <Link to="/">🏠</Link>
       </button>
       <button id="white-button" onClick={popwithLogin}>
         {" "}

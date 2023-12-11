@@ -31,7 +31,7 @@ function Home() {
         The options bar at the very top right, and the nav bar just below it will
         remain visible at all times as you navigate and will allow you to start
         fresh navigating at any time. You can use the nav-bar go to Articles,
-        Topics, user, or come back here with 'H' button.
+        Topics, user, or come back here with 🏠 'Home' button.
       </p>
       <p>
         {" "}

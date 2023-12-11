@@ -54,7 +54,7 @@ button:hover {
   margin: 2 rem;
   padding: 2 rem;
   display: grid;
-  grid-template-columns: 25% 10% 40% 25%;
+  grid-template-columns: 23% 15% 39% 23%;
 }
 
 /* parchment style background to test 
