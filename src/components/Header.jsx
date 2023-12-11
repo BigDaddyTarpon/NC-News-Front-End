@@ -3,9 +3,30 @@ function Header() {
     <div className="top-grid-container">
       <h1 className="header"> NC News</h1>
       <nav className="options-bar">
-        <div>connection set to; fast</div>
-        <div>volume/mute set to; normal</div>
-        <div>dark mode set to; off</div>
+        <form>
+        <label
+    >Connection -  
+    <select name="Dark mode">
+      <option>set to: Good</option>
+      <option>set to: Slow</option>
+    </select>
+  </label>
+        <div>
+    Volume ------ 
+    <select name="Dark mode">
+      <option>set to: On</option>
+      <option>set to: Mute</option>
+    </select>
+  </div>
+  
+  <label
+    >Dark mode --
+    <select name="Dark mode">
+      <option>set to: On</option>
+      <option>set to: Off</option>
+    </select>
+  </label>
+  </form>
       </nav>
     </div>
   );

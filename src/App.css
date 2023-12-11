@@ -1,6 +1,10 @@
 .header {
   padding-right: 10px;
 }
+select:focus {
+  background-color: lightblue;
+  scale: 1.5;
+}
 
 .options-bar {
   padding: 2px;
