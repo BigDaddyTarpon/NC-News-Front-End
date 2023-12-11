@@ -6,14 +6,14 @@ function Header() {
         <form>
         <label
     >Connection -  
-    <select name="Dark mode">
+    <select name="Connection">
       <option>set to: Good</option>
       <option>set to: Slow</option>
     </select>
   </label>
         <div>
     Volume ------ 
-    <select name="Dark mode">
+    <select name="Volume">
       <option>set to: On</option>
       <option>set to: Mute</option>
     </select>
