@@ -31,6 +31,7 @@ export const getCommentsByArticleID = (article_id) => {
 export const incrementArticleVotes = (article_id, newVote) => {
   return api.patch(`/api/articles/${article_id}`, { inc_votes: newVote}).then((response) => {
    console.log(response.data)
+   console.log(updatedArticle[0].votes)
     return response.data;
     
   });

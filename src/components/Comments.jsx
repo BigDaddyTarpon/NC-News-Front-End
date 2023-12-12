@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllArticles, getCommentsByArticleID } from "../utils/api";
-import { Link } from "react-router-dom";
+
 import { useParams } from "react-router-dom";
 
 function Comments() {
