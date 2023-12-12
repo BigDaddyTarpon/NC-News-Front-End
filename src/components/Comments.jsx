@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function Comments() {
-  const [comments, setComments] = useState("");
+  const [comments, setComments] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -19,7 +19,6 @@ function Comments() {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setError(true);
       });
   }, []);
@@ -29,24 +28,23 @@ function Comments() {
   } else if (loading) {
     return <p>Loading comments for this article! Please wait a moment.</p>;
   } else {
-    if(comments.length === 0){return (
-      <h3> There are no comments yet! Would you like to write one?</h3>
-    )}
-    else{
-    return (
-      <ul>
-        {comments.map((comment) => {
-          return (
-            <li key={comment.comment_id} className="Listcomments">
-              <p>comment by {comment.author}</p>
-              <p>Votes: {comment.votes}</p>
-              <p>{comment.body}</p>
-            </li>
-          );
-        })}
-      </ul>
-    );
+    if (comments.length === 0) {
+      return <h3> There are no comments yet! Would you like to write one?</h3>;
+    } else {
+      return (
+        <ul>
+          {comments.map((comment) => {
+            return (
+              <li key={comment.comment_id} className="Listcomments">
+                <p>comment by {comment.author}</p>
+                <p>Votes: {comment.votes}</p>
+                <p>{comment.body}</p>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    }
   }
-}
 }
 export default Comments;
