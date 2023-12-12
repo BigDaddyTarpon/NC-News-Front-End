@@ -29,6 +29,10 @@ function Comments() {
   } else if (loading) {
     return <p>Loading comments for this article! Please wait a moment.</p>;
   } else {
+    if(comments.length === 0){return (
+      <h3> There are no comments yet! Would you like to write one?</h3>
+    )}
+    else{
     return (
       <ul>
         {comments.map((comment) => {
@@ -44,5 +48,5 @@ function Comments() {
     );
   }
 }
-
+}
 export default Comments;
