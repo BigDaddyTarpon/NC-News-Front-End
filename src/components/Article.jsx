@@ -30,9 +30,9 @@ useEffect(() => {
   
 
 return(<div className="articleCard">
-    <h2>{article.title}</h2>
-    <p>written by {article.author}, on the topic of; {article.topic}.</p>
-    <p> Total votes {article.votes}, and there are {article.comment_count} comments</p>
+    <h2 >{article.title}</h2>
+    <p className='ArticleCardBodyText'>written by {article.author}, on the topic of; {article.topic}.</p>
+    <p className='ArticleCardBodyText'> Total votes {article.votes}, and there are {article.comment_count} comments</p>
     <img src={article.article_img_url} alt="an image relating to the topic" />
     <p>{article.body}</p>
     

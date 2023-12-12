@@ -31,18 +31,15 @@ function Navbar() {
   return (
     <nav className="Navbar-grid-container">
       <button id="red-button" onClick={popwithArticle}>
-        {" "}
         <Link to="/articles"> Articles </Link>
       </button>
       <button id="grey-button" onClick={pop}>
         <Link to="/">🏠</Link>
       </button>
       <button id="white-button" onClick={popwithLogin}>
-        {" "}
         <Link to="/users">Logged in as : {user}</Link>{" "}
       </button>
       <button id="blue-button" onClick={popwithTopic}>
-        {" "}
         <Link to="/topics">Topics </Link>
       </button>
     </nav>
