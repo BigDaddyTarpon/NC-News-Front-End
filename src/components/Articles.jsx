@@ -45,7 +45,6 @@ function Articles() {
               </p>
               <p>Topic: {article.topic} , Written by: {article.author}</p>
               <p>It has {article.votes} votes, and {article.comment_count} comments</p>
-              <p> dev only article_id: {article.article_id}</p>
               </Link> 
             </li>
           );
