@@ -3,11 +3,13 @@ import { getArticleById } from '../utils/api';
 import { useContext, useEffect, useState } from "react";
 import popSound from "../assets/popSound.mp3";
 import { Link } from "react-router-dom";
+import Comments from './Comments';
+
 
 function popwithcomments() {
   new Audio(popSound).play();
   
-  //to add vote functionality
+  //to add comments functionality
 }
 function popwithupvote() {
   new Audio(popSound).play();
@@ -26,6 +28,7 @@ const { article_id } = useParams();
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(false);
 const [article, setArticle] = useState('');
+const [comments, setComments] = useState("");
 
 
 useEffect(() => {
@@ -57,9 +60,10 @@ return(<div className="articleCard">
     <p>{article.body}</p>
     <nav className="article-button-container">
       <button id="red-button" onClick={popwithupvote}> upvote </button>
-      <button id="white-button" onClick={popwithcomments}><Link to="/Comments"> view the comments</Link></button>
+      <button id="white-button" onClick={popwithcomments}> view the comments</button>
       <button id="blue-button" onClick={popwithdownvote}>downvote</button>
     </nav>
+    <Comments />
     </div>
 )
 }

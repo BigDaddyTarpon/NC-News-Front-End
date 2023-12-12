@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllArticles, getCommentsByArticleID } from "../utils/api";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Comments() {
   const [comments, setComments] = useState("");
@@ -9,11 +10,12 @@ function Comments() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);
+  const { article_id } = useParams();
 
   useEffect(() => {
-    getCommentsByArticleID()
+    getCommentsByArticleID(article_id)
       .then((data) => {
-        setComments(data.comments);
+        setComments(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -22,33 +24,25 @@ function Comments() {
       });
   }, []);
 
-  if (loading) {
-    return <p>Loading comments for this article! Please wait a moment.</p>;
-  }
   if (error) {
     return <p>error!</p>;
+  } else if (loading) {
+    return <p>Loading comments for this article! Please wait a moment.</p>;
+  } else {
+    return (
+      <ul>
+        {comments.map((comment) => {
+          return (
+            <li key={comment.comment_id} className="Listcomments">
+              <p>comment by {comment.author}</p>
+              <p>Votes: {comment.votes}</p>
+              <p>{comment.body}</p>
+            </li>
+          );
+        })}
+      </ul>
+    );
   }
-
-  return (
-    
-    <ul>
-    {comments.map((comment) => {
-      return (
-        <li key={comment.comment_id} className="Listcomments">
-           
-          <p>
-          comment by {comment.author}
-          </p>
-          <p>Votes: {comment.voyes}</p>
-          <p>{comment.body}</p>
-           
-        </li>
-      );
-    })}
-  </ul>
-
-
-  );
 }
 
 export default Comments;

@@ -23,7 +23,7 @@ export const getArticleById = (article_id) => {
 
 export const getCommentsByArticleID = (article_id) => {
   return api.get(`/api/articles/${article_id}/comments`).then((response) => {
-    console.log(response.data)
-    return response.data;
+   
+    return response.data.comments;
   });
 };
