@@ -26,7 +26,7 @@ function Users() {
   }, []);
 
   if (loading) {
-    return <p>loading!</p>;
+    return <p>Loading a list of all users! Please wait a moment.</p>;
   }
   if (error) {
     return <p>error!</p>;

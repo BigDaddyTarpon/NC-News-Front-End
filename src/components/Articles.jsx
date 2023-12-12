@@ -1,24 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllArticles } from "../utils/api";
-
+import { Link } from "react-router-dom";
 
 function Articles() {
     const [articles, setArticles] = useState([]);
-    const [article, setArticle] = useState('');
+   
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const { user, setUser } = useContext(UserContext);
-    
-    function handleUserClick(article_id) {
-        setArticle(article_id);
-      }
+     
 
     useEffect(() => {
         getAllArticles()
           .then((data) => {
             setArticles(data.articles);
             setLoading(false);
+            
           })
           .catch((error) => {
             console.log(error);
@@ -27,41 +25,35 @@ function Articles() {
       }, []);
     
       if (loading) {
-        return <p>loading!, please wait a moment</p>;
+        return <p>Loading articles! Please wait a moment.</p>;
       }
       if (error) {
         return <p>error!</p>;
       }
       
       return (
-      <>
+      <> 
       <h2> There are currently {articles.length} articles, here is a summary of each.</h2>
       <h3>Click one to focus on it and see the article!</h3>
       <ul>
         {articles.map((article) => {
           return (
-            <li key={article.article_id}>
-              <p
-                onClick={() => {
-                  handleUserClick(article.article_id);
-                }}
-              >
+            <li key={article.article_id} className="ListItemArticles">
+              <Link to={`/articles/${article.article_id}`}> 
+              <p>
                 Article Title: {article.title}
               </p>
               <p>Topic: {article.topic} , Written by: {article.author}</p>
               <p>It has {article.votes} votes, and {article.comment_count} comments</p>
-              <p>-------------------------------------------</p>
+              <p> dev only article_id: {article.article_id}</p>
+              </Link> 
             </li>
           );
         })}
       </ul>
 
-      </>)
+      </>)}
       
-      
-
-}
 
 export default Articles;
 
-// 
