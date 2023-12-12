@@ -5,16 +5,6 @@ import popSound from "../assets/popSound.mp3";
 
 import Comments from "./Comments";
 
-function popwithupvote() {
-  new Audio(popSound).play();
-
-  //to add vote functionality
-}
-function popwithdownvote() {
-  new Audio(popSound).play();
-
-  //to add vote functionality
-}
 
 function Article() {
   const { article_id } = useParams();
@@ -22,10 +12,23 @@ function Article() {
   const [error, setError] = useState(false);
   const [article, setArticle] = useState("");
   const [showComments, setShowComments] = useState(false);
-
+  const [displayedVotes, setDisplayedVotes] = useState(0)
+  const [newVote, setNewVote] = useState(1)
+  
   function popwithcomments() {
     setShowComments(!showComments);
     new Audio(popSound).play();
+  }
+  
+  function popwithupvote() {
+    new Audio(popSound).play();
+    setDisplayedVotes(displayedVotes +1);
+    setNewVote(1);
+  }
+  function popwithdownvote() {
+    new Audio(popSound).play();
+    setDisplayedVotes(displayedVotes -1);
+    setNewVote(-1);
   }
 
   useEffect(() => {
@@ -33,6 +36,8 @@ function Article() {
       .then((data) => {
         setArticle(data);
         setLoading(false);
+        setDisplayedVotes(parseInt(article.votes));
+        
       })
       .catch((error) => {
         console.log(error);
@@ -46,18 +51,19 @@ function Article() {
     );
   }
   if (error) {
-    return <p>error!</p>;
+    return <p>Opps, an error occurred! Better try that again, please.</p>;
   }
 
   return (
-    <div className="articleCard">
+    
+    <div className="articleCard"> 
       <h2>{article.title}</h2>
       <p className="ArticleCardBodyText">
         written by {article.author}, on the topic of; {article.topic}.
       </p>
       <p className="ArticleCardBodyText">
         {" "}
-        Total votes {article.votes}, and there are {article.comment_count}{" "}
+        Total votes {displayedVotes}, and there are {article.comment_count}{" "}
         comments
       </p>
       <img src={article.article_img_url} alt="an image relating to the topic" />
@@ -72,7 +78,7 @@ function Article() {
           {showComments ? "Hide" : "Show"} the comments
         </button>
         <button id="blue-button" onClick={popwithdownvote}>
-          downvote
+          downvote 
         </button>
       </nav>
       {showComments ? <Comments /> : null}
