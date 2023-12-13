@@ -40,3 +40,8 @@ export const addCommentToArticleByID = (article_id, newComment) => {
     return response.data.comment;
   })
 }
+export const deleteCommentbyID = (comment_id) => {
+  return api.delete(`/api/comments/${comment_id}`).then ((response) =>{
+    return response
+  })
+}
