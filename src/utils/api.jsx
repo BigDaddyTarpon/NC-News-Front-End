@@ -27,3 +27,10 @@ export const getCommentsByArticleID = (article_id) => {
     return response.data.comments;
   });
 };
+
+export const incrementArticleVotes = (article_id, newVote) => {
+  return api.patch(`/api/articles/${article_id}`, { inc_votes: newVote}).then((response) => {
+      return response.data;
+    
+  });
+};
