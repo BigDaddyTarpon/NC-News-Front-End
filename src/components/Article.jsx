@@ -23,16 +23,19 @@ function Article() {
     new Audio(popSound).play();
     setDisplayedVotes(displayedVotes + 1);
     setNewVote(1);
-    incrementArticleVotes(article_id, newVote).then((data)=> {
-      setDisplayedVotes(updatedArticle.votes)
-    });;
+    incrementArticleVotes(article_id, newVote).catch(() => {
+      setError(true);
+      setDisplayedVotes(displayedVotes - 1);
+    });
   }
+
   function popwithdownvote() {
     new Audio(popSound).play();
     setDisplayedVotes(displayedVotes - 1);
     setNewVote(-1);
-    incrementArticleVotes(article_id, newVote).then((data)=> {
-      setDisplayedVotes(updatedArticle.votes)
+    incrementArticleVotes(article_id, newVote).catch(() => {
+      setError(true);
+      setDisplayedVotes(displayedVotes - 1);
     });
   }
 
