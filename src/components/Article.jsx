@@ -12,7 +12,6 @@ function Article() {
   const [article, setArticle] = useState("");
   const [showComments, setShowComments] = useState(false);
   const [displayedVotes, setDisplayedVotes] = useState(0);
-  const [newVote, setNewVote] = useState(1);
 
   function popwithcomments() {
     setShowComments(!showComments);
@@ -22,8 +21,8 @@ function Article() {
   function popwithupvote() {
     new Audio(popSound).play();
     setDisplayedVotes(displayedVotes + 1);
-    setNewVote(1);
-    incrementArticleVotes(article_id, newVote).catch(() => {
+
+    incrementArticleVotes(article_id, 1).catch(() => {
       setError(true);
       setDisplayedVotes(displayedVotes - 1);
     });
@@ -32,10 +31,10 @@ function Article() {
   function popwithdownvote() {
     new Audio(popSound).play();
     setDisplayedVotes(displayedVotes - 1);
-    setNewVote(-1);
-    incrementArticleVotes(article_id, newVote).catch(() => {
+
+    incrementArticleVotes(article_id, -1).catch(() => {
       setError(true);
-      setDisplayedVotes(displayedVotes - 1);
+      setDisplayedVotes(displayedVotes + 1);
     });
   }
 
@@ -44,7 +43,6 @@ function Article() {
       .then((data) => {
         setArticle(data);
         setLoading(false);
-               setDisplayedVotes(article.votes || displayedVotes);
       })
       .catch((error) => {
         console.log(error);
@@ -67,8 +65,8 @@ function Article() {
         </p>
         <p className="ArticleCardBodyText">
           {" "}
-          Total votes {displayedVotes}, and there are {article.comment_count}{" "}
-          comments
+          Total votes {article.votes + displayedVotes}, and there are{" "}
+          {article.comment_count} comments
         </p>
         <img
           src={article.article_img_url}
