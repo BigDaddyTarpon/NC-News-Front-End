@@ -63,16 +63,15 @@ function Article() {
         <p className="ArticleCardBodyText">
           written by {article.author}, on the topic of; {article.topic}.
         </p>
-        <p className="ArticleCardBodyText">
-          {" "}
-          Total votes {article.votes + displayedVotes}, and there are{" "}
-          {article.comment_count} comments
-        </p>
         <img
           src={article.article_img_url}
           alt="an image relating to the topic"
         />
-        <p>{article.body}</p>
+        <p className="ArticleCardBodyText">{article.body}</p>
+        <p>
+          Total votes {article.votes + displayedVotes}, and there are{" "}
+          {article.comment_count} comments
+        </p>
         <nav className="article-button-container">
           <button id="red-button" onClick={popwithupvote}>
             {" "}
