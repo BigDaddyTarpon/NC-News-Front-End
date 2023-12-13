@@ -10,7 +10,7 @@ import popSound from "../assets/popSound.mp3";
 import { useParams } from "react-router-dom";
 import AddNewComment from "./AddNewComment";
 
-function Comments() {
+function Comments({showComments, setShowComments}) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -18,6 +18,12 @@ function Comments() {
   const { article_id } = useParams();
   const [addComment, setAddComment] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false)
+
+  function refreshComments(){
+    setShowComments(!showComments);
+    new Audio(popSound).play();
+    
+  }
 
   function popwithAddComment() {
     setAddComment(true);
@@ -65,6 +71,7 @@ function Comments() {
         <button id="red-button" onClick={popwithAddComment}>
           add a comment
         </button>
+        <button id="blue-button" onClick={refreshComments}>refresh comments</button>
         {addComment ? (
           <AddNewComment comments={comments} setComments={setComments} />
         ) : null}
