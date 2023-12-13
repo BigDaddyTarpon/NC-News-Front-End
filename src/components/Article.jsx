@@ -44,9 +44,7 @@ function Article() {
       .then((data) => {
         setArticle(data);
         setLoading(false);
-        console.log(article.votes);
-        console.log(data);
-        setDisplayedVotes(article.votes || 0);
+               setDisplayedVotes(article.votes || displayedVotes);
       })
       .catch((error) => {
         console.log(error);
