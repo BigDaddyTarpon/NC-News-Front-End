@@ -1,19 +1,37 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { addCommentToArticlebByID } from "../utils/api";
-import { user } from "pg/lib/defaults";
+import { addCommentToArticleByID } from "../utils/api";
 import { UserContext } from "../contexts/UserContext";
+import { Link } from "react-router-dom";
 
-function CommentAdder() {
+function AddNewComment({ comments, setComments }) {
+  const { user } = useContext(UserContext);
+  const [newComment, setNewComment] = useState({ username: user, body: "" });
+  const [error, setError] = useState(false);
 
-    const user = usecontext(UserContext)
-    const [newComment, setNewComment] = useState({username: user, body:""})
+  const { article_id } = useParams();
 
-    const handleChange = (event) =>{
-setNewComment((newComment)=>{const edit = {...newComment};
-edit.body = event.target.value;
-return edit})
-    }
+  const handleChange = (event) => {
+    setNewComment((newComment) => {
+      const edit = { ...newComment };
+      edit.body = event.target.value;
+
+      return edit;
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addCommentToArticleByID(article_id, newComment)
+      .then((response) => {
+        setComments([response, ...comments]);
+      })
+
+      .catch(() => {
+        setError(true);
+      });
+  };
+
   return (
     <>
       <form
@@ -40,4 +58,4 @@ return edit})
   );
 }
 
-export default CommentAdder;
+export default AddNewComment;

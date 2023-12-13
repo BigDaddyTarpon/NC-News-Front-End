@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { getArticleById, incrementArticleVotes } from "../utils/api";
 import { useContext, useEffect, useState } from "react";
 import popSound from "../assets/popSound.mp3";
-import {commentAdder} from "./AddNewComment.jsx"
 
 import Comments from "./Comments";
 
@@ -14,12 +13,6 @@ function Article() {
   const [showComments, setShowComments] = useState(false);
   const [displayedVotes, setDisplayedVotes] = useState(0);
   const [newVote, setNewVote] = useState(1);
-  const [addComment, setAddComment] = useState(false)
-
-  function popwithAddComment () {
-    setAddComment(true);
-    new Audio(popSound).play();
-  }
 
   function popwithcomments() {
     setShowComments(!showComments);
@@ -89,15 +82,10 @@ function Article() {
             {" "}
             {showComments ? "Hide" : "Show"} comments
           </button>
-          <button id="white-button" onClick={popwithAddComment}>
-            {" "}
-            add a comment
-          </button>
           <button id="blue-button" onClick={popwithdownvote}>
             downvote
           </button>
         </nav>
-        {addComment ? <AddNewComment /> :null}
         {showComments ? <Comments /> : null}
       </div>
     );

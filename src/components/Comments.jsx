@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllArticles, getCommentsByArticleID } from "../utils/api";
+import popSound from "../assets/popSound.mp3";
 
 import { useParams } from "react-router-dom";
+import AddNewComment from "./AddNewComment";
 
 function Comments() {
   const [comments, setComments] = useState([]);
@@ -11,6 +13,12 @@ function Comments() {
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);
   const { article_id } = useParams();
+  const [addComment, setAddComment] = useState(false);
+
+  function popwithAddComment() {
+    setAddComment(true);
+    new Audio(popSound).play();
+  }
 
   useEffect(() => {
     getCommentsByArticleID(article_id)
@@ -33,6 +41,12 @@ function Comments() {
     } else {
       return (
         <ul>
+          <button id="white-button" onClick={popwithAddComment}>
+            add a comment
+          </button>
+          {addComment ? (
+            <AddNewComment comments={comments} setComments={setComments} />
+          ) : null}
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id} className="Listcomments">
@@ -43,7 +57,6 @@ function Comments() {
             );
           })}
         </ul>
-        
       );
     }
   }
