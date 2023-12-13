@@ -34,3 +34,9 @@ export const incrementArticleVotes = (article_id, newVote) => {
     
   });
 };
+
+export const addCommentToArticlebByID = (article_id, newComment) => {
+  return api.post(`/api/articles/${article_id}/comments`, newComment).then ((response) => {
+    return response.data;
+  })
+}
