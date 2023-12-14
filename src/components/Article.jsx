@@ -12,6 +12,7 @@ function Article() {
   const [article, setArticle] = useState("");
   const [showComments, setShowComments] = useState(false);
   const [displayedVotes, setDisplayedVotes] = useState(0);
+  const [newVote, setNewVote] = useState(1);
 
   function popwithcomments() {
     setShowComments(!showComments);
@@ -77,9 +78,9 @@ function Article() {
             {" "}
             upvote{" "}
           </button>
-          <button id="white-button" onClick={popwithcomments}>
+          <button id="grey-button" onClick={popwithcomments}>
             {" "}
-            {showComments ? "Hide" : "Show"} the comments
+            {showComments ? "Hide" : "Show"} comments
           </button>
           <button id="blue-button" onClick={popwithdownvote}>
             downvote
