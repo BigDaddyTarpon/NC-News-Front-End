@@ -10,19 +10,18 @@ import popSound from "../assets/popSound.mp3";
 import { useParams } from "react-router-dom";
 import AddNewComment from "./AddNewComment";
 
-function Comments({showComments, setShowComments}) {
+function Comments({ showComments, setShowComments }) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);
   const { article_id } = useParams();
   const [addComment, setAddComment] = useState(false);
-  const [isDeleted, setIsDeleted] = useState(false)
+  //const [isDeleted, setIsDeleted] = useState(false)
 
-  function refreshComments(){
+  function refreshComments() {
     setShowComments(!showComments);
     new Audio(popSound).play();
-    
   }
 
   function popwithAddComment() {
@@ -34,7 +33,13 @@ function Comments({showComments, setShowComments}) {
     deleteCommentbyID(comment_id);
     new Audio(popSound)
       .play()
-.then(()=>{setIsDeleted(true)})
+      .then(() => {
+        setComments(
+          comments.filter((comment) => {
+            return comment.comment_id !== comment_id;
+          })
+        );
+      })
       .catch(() => {
         setError(true);
       });
@@ -71,7 +76,9 @@ function Comments({showComments, setShowComments}) {
         <button id="red-button" onClick={popwithAddComment}>
           add a comment
         </button>
-        <button id="blue-button" onClick={refreshComments}>refresh comments</button>
+        <button id="blue-button" onClick={refreshComments}>
+          refresh comments
+        </button>
         {addComment ? (
           <AddNewComment comments={comments} setComments={setComments} />
         ) : null}

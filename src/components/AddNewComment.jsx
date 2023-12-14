@@ -25,13 +25,14 @@ function AddNewComment({ comments, setComments }) {
     addCommentToArticleByID(article_id, newComment)
       .then((response) => {
         setComments([response, ...comments]);
+        
       })
-
+    
       .catch(() => {
         setError(true);
       });
   };
-
+  
   return (
     <>
       <form
