@@ -52,7 +52,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
           handleSubmit(event);
         }}
       >
-        <label> Please enter your new comment here:</label>
+        <label for="comment"> Please enter your new comment here:</label>
         <textarea
           required
           value={newComment.body}
