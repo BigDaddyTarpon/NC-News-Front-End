@@ -17,12 +17,9 @@ function Comments({ showComments, setShowComments }) {
   const { user, setUser } = useContext(UserContext);
   const { article_id } = useParams();
   const [addComment, setAddComment] = useState(false);
-  //const [isDeleted, setIsDeleted] = useState(false)
+  
 
-  function refreshComments() {
-    setShowComments(!showComments);
-    new Audio(popSound).play();
-  }
+  
 
   function popwithAddComment() {
     setAddComment(true);
@@ -33,16 +30,22 @@ function Comments({ showComments, setShowComments }) {
     deleteCommentbyID(comment_id);
     new Audio(popSound)
       .play()
-      .then(() => {
+      .then((response) => {
+        
         setComments(
           comments.filter((comment) => {
             return comment.comment_id !== comment_id;
+            
           })
         );
       })
       .catch(() => {
         setError(true);
       });
+      return(
+        error ? <p>error deleting that comment! Better try again later</p> : null
+      )
+      
   }
 
   useEffect(() => {
@@ -76,11 +79,8 @@ function Comments({ showComments, setShowComments }) {
         <button id="red-button" onClick={popwithAddComment}>
           add a comment
         </button>
-        <button id="blue-button" onClick={refreshComments}>
-          refresh comments
-        </button>
         {addComment ? (
-          <AddNewComment comments={comments} setComments={setComments} />
+          <AddNewComment comments={comments} setComments={setComments} setShowComments={setShowComments} showComments={showComments} />
         ) : null}
         {comments.map((comment) => {
           return (

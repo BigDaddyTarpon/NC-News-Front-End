@@ -3,13 +3,19 @@ import { useParams } from "react-router-dom";
 import { addCommentToArticleByID } from "../utils/api";
 import { UserContext } from "../contexts/UserContext";
 import { Link } from "react-router-dom";
+import popSound from "../assets/popSound.mp3";
 
-function AddNewComment({ comments, setComments }) {
+function AddNewComment({ comments, setComments, showComments, setShowComments}) {
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState({ username: user, body: "" });
   const [error, setError] = useState(false);
 
   const { article_id } = useParams();
+
+  function removeCommentBox() {
+    setShowComments(!showComments);
+    new Audio(popSound).play();
+  }
 
   const handleChange = (event) => {
     setNewComment((newComment) => {
@@ -35,6 +41,9 @@ function AddNewComment({ comments, setComments }) {
   
   return (
     <>
+    <button id="blue-button" onClick={removeCommentBox}>
+          close comment box
+        </button>
       <form
         className="new-comment-form"
         onSubmit={(event) => {
