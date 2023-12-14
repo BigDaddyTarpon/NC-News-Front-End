@@ -43,9 +43,16 @@ export const addCommentToArticleByID = (article_id, newComment) => {
     });
 };
 
+export const deleteCommentbyID = (comment_id) => {
+  return api.delete(`/api/comments/${comment_id}`).then ((response) =>{
+    return response
+  })
+}
+
 export const getAllTopics = () => {
   return api.get(`/api/topics`).then((response) => {
     console.log(response.data)
     return response.data;
   });
 };
+
