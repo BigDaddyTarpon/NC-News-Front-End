@@ -42,11 +42,9 @@ function Comments({ showComments, setShowComments }) {
       .catch(() => {
         setError(true);
       });
-      return(
-        error ? <p>error deleting that comment! Better try again later</p> : null
-      )
       
   }
+  
 
   useEffect(() => {
     getCommentsByArticleID(article_id)
@@ -68,7 +66,7 @@ function Comments({ showComments, setShowComments }) {
       <h3>
         {" "}
         There are no comments yet! Would you like to write one?
-        <button id="white-button" onClick={popwithAddComment}>
+        <button id="red-button" onClick={popwithAddComment}>
           add a comment
         </button>
       </h3>
@@ -96,6 +94,7 @@ function Comments({ showComments, setShowComments }) {
                     delete your comment
                   </button>
                 )}
+                {error ? <p>error deleting that comment! Better try again later</p> : null}
               </p>
               <p>{comment.body}</p>
             </li>

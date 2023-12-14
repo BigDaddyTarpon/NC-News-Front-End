@@ -31,13 +31,10 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
     event.preventDefault();
     addCommentToArticleByID(article_id, newComment)
       .then((response) => {
+        new Audio(popSound).play();
         setComments([response, ...comments]);
-<<<<<<< HEAD
-=======
         setNewComment({ username: user, body: "" });
->>>>>>> main
-        
-      })
+  })
     
       .catch(() => {
         setError(true);
@@ -46,7 +43,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
   
   return (
     <>
-    <button id="blue-button" onClick={removeCommentBox}>
+    <button id="grey-button" onClick={removeCommentBox}>
           close comment box
         </button>
       <form
@@ -65,7 +62,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
           }}
           name="comment"
         ></textarea>
-        <button id="submit-comment-button" type="submit">
+        <button id="blue-button" type="submit">
           {" "}
           Submit your comment{" "}
         </button>
