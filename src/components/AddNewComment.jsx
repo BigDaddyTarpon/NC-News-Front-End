@@ -9,6 +9,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState({ username: user, body: "" });
   const [error, setError] = useState(false);
+ 
 
   const { article_id } = useParams();
 
@@ -31,6 +32,10 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
     addCommentToArticleByID(article_id, newComment)
       .then((response) => {
         setComments([response, ...comments]);
+<<<<<<< HEAD
+=======
+        setNewComment({ username: user, body: "" });
+>>>>>>> main
         
       })
     
@@ -53,6 +58,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
         <label> Please enter your new comment here:</label>
         <textarea
           required
+          value={newComment.body}
           id="new-comment-textarea"
           onChange={(event) => {
             handleChange(event);
@@ -64,6 +70,8 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
           Submit your comment{" "}
         </button>
       </form>
+      
+      {error ? <p>Failed to post comment, try again later</p> : null}
     </>
   );
 }
