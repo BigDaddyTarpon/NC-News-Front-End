@@ -44,12 +44,12 @@ function Topics() {
         {topics.map((topic) => {
           return (
             <li key={topic.slug} className="ListItemTopics">
-              {/* <Link to={`/articles/${article.article_id}`}> */}
+              <Link to={`/articles?topic=${topic.slug}`}>
               <p>Topic Title: {topic.slug}</p>
               <p>Topic description: {topic.description}</p>
               <p>A sharable link to only load the articles on this topics is;</p>
-              <p>{`https://steves-nc-news-project.onrender.com/api/articles?${topic.slug}`}</p>
-              {/* </Link> */}
+              <p>{`https://steves-nc-news-project.onrender.com/api/articles?topic=${topic.slug}`}</p>
+              </Link>
             </li>
           );
         })}

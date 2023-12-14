@@ -54,3 +54,12 @@ export const getAllTopics = () => {
     return response.data;
   });
 };
+// , {params:{topic}}
+
+export const getArticlesByTopic = (topic) => {
+  return api
+    .get(`/api/articles?topic=${topic}`)
+    .then((response) => {
+      return response.data;
+    });
+};
