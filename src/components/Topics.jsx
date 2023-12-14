@@ -38,7 +38,8 @@ function Topics() {
         There are currently {topics.length} topics, here is a list of the
         available topics.
       </h2>
-      <h3>Click a topic to see the articles in that topic!</h3>
+      <h3>Click a topic to see the articles in that topic in the App!</h3>
+      <p>Or share the link provided with friends via your favourite messaging App</p>
       <ul>
         {topics.map((topic) => {
           return (
@@ -46,7 +47,8 @@ function Topics() {
               {/* <Link to={`/articles/${article.article_id}`}> */}
               <p>Topic Title: {topic.slug}</p>
               <p>Topic description: {topic.description}</p>
-
+              <p>A sharable link to only load the articles on this topics is;</p>
+              <p>{`https://steves-nc-news-project.onrender.com/api/articles?${topic.slug}`}</p>
               {/* </Link> */}
             </li>
           );
