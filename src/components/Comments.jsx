@@ -41,12 +41,14 @@ function Comments() {
     } else {
       return (
         <ul>
+
           <button id="white-button" onClick={popwithAddComment}>
             add a comment
           </button>
           {addComment ? (
             <AddNewComment comments={comments} setComments={setComments} />
           ) : null}
+
           {comments.map((comment) => {
             return (
               <li key={comment.comment_id} className="Listcomments">
