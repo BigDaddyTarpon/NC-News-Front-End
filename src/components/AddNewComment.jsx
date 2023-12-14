@@ -3,14 +3,20 @@ import { useParams } from "react-router-dom";
 import { addCommentToArticleByID } from "../utils/api";
 import { UserContext } from "../contexts/UserContext";
 import { Link } from "react-router-dom";
+import popSound from "../assets/popSound.mp3";
 
-function AddNewComment({ comments, setComments }) {
+function AddNewComment({ comments, setComments, showComments, setShowComments}) {
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState({ username: user, body: "" });
   const [error, setError] = useState(false);
  
 
   const { article_id } = useParams();
+
+  function removeCommentBox() {
+    setShowComments(!showComments);
+    new Audio(popSound).play();
+  }
 
   const handleChange = (event) => {
     setNewComment((newComment) => {
@@ -25,25 +31,28 @@ function AddNewComment({ comments, setComments }) {
     event.preventDefault();
     addCommentToArticleByID(article_id, newComment)
       .then((response) => {
+        new Audio(popSound).play();
         setComments([response, ...comments]);
         setNewComment({ username: user, body: "" });
-        
-      })
-
+  })
+    
       .catch(() => {
         setError(true);
       });
   };
-
+  
   return (
     <>
+    <button id="grey-button" onClick={removeCommentBox}>
+          close comment box
+        </button>
       <form
         className="new-comment-form"
         onSubmit={(event) => {
           handleSubmit(event);
         }}
       >
-        <label> Please enter your new comment here:</label>
+        <label for="comment"> Please enter your new comment here:</label>
         <textarea
           required
           value={newComment.body}
@@ -53,7 +62,7 @@ function AddNewComment({ comments, setComments }) {
           }}
           name="comment"
         ></textarea>
-        <button id="submit-comment-button" type="submit">
+        <button id="blue-button" type="submit">
           {" "}
           Submit your comment{" "}
         </button>
