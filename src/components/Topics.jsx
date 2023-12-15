@@ -54,7 +54,7 @@ function Topics() {
           {topics.map((topic, index) => {
             return (
               <Link to={`/articles?topic=${topic.slug}`}>
-                <li key={index} className="ListItemTopics">
+                <li key={index.toString()} className="ListItemTopics">
                   <p>Topic Title: {topic.slug}</p>
                   <p>Topic description: {topic.description}</p>
                   <p>
