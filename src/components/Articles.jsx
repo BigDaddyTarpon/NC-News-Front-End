@@ -60,4 +60,3 @@ const topic=searchParams.get("topic")
 }
 
 export default Articles;
-//some are on {topic}
