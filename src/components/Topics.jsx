@@ -2,16 +2,25 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllTopics } from "../utils/api";
 import { Link } from "react-router-dom";
- 
+import popSound from "../assets/popSound.mp3";
+import Articles from "./Articles";
 
 function Topics() {
-  //return <h2> Topics will be coming soon!</h2>;
+ 
 
   const [topics, setTopics] = useState([]);
+  const [selectedTopic, setSelectedTopic] = useState("");
+  const [toDisplay, setToDisplay] = useState("topics")
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);
+
+   function popwithselecttopic (topic) {
+    new Audio(popSound).play();
+    setToDisplay(topic)
+    setSelectedTopic(topic)
+  }
 
   useEffect(() => {
     getAllTopics()
@@ -30,11 +39,11 @@ function Topics() {
   if (error) {
     return <p>error loading topics! Try again later</p>;
   }
-
-  return (
+  
+  if(toDisplay === "topics"){return( 
     <>
       <h2>
-        {" "}
+       
         There are currently {topics.length} topics, here is a list of the
         available topics.
       </h2>
@@ -43,19 +52,28 @@ function Topics() {
       <ul>
         {topics.map((topic) => {
           return (
+            <button onClick={()=>popwithselecttopic(topic.slug)}>
             <li key={topic.slug} className="ListItemTopics">
-              <Link to={`/articles?topic=${topic.slug}`}>
+              
               <p>Topic Title: {topic.slug}</p>
               <p>Topic description: {topic.description}</p>
               <p>A sharable link to only load the articles on this topics is;</p>
               <p>{`https://steves-nc-news-project.onrender.com/api/articles?topic=${topic.slug}`}</p>
-              </Link>
-            </li>
+             
+            </li> 
+            </button>
           );
         })}
       </ul>
     </>
-  );
+  )}
+  else{<Articles topic={selectedTopic}/>
+    
+//     return(
+//   <h2> Articles on the topic of {toDisplay} will be coming soon!</h2>)
+// <Articles />
+}
+  
 }
 
-export default Topics;
+export default Topics

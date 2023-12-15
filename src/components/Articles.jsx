@@ -3,7 +3,7 @@ import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllArticles } from "../utils/api";
 import { Link } from "react-router-dom";
 
-function Articles() {
+function Articles({ topic }) {
   const [articles, setArticles] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ function Articles() {
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    getAllArticles()
+    getAllArticles(topic)
       .then((data) => {
         setArticles(data.articles);
         setLoading(false);
@@ -30,9 +30,9 @@ function Articles() {
 
   return (
     <>
-      <h2>
+      <h2> 
         {" "}
-        There are currently {articles.length} articles, here is a summary of
+        There are currently {articles.length} articles,  here is a summary of
         each.
       </h2>
       <h3>Click one to focus on it and see the article!</h3>
@@ -59,3 +59,4 @@ function Articles() {
 }
 
 export default Articles;
+//some are on {topic}

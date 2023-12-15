@@ -52,7 +52,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
           handleSubmit(event);
         }}
       >
-        <label for="comment"> Please enter your new comment here:</label>
+        <label> Please enter your new comment here:
         <textarea
           required
           value={newComment.body}
@@ -61,7 +61,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
             handleChange(event);
           }}
           name="comment"
-        ></textarea>
+        ></textarea></label>
         <button id="blue-button" type="submit">
           {" "}
           Submit your comment{" "}
