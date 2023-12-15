@@ -11,7 +11,8 @@ function ArticleOptionsNavbar({order, setOrder, sort, setSort}) {
 
   function popwithDate() {
     new Audio(popSound).play();
-    setSort(created_at)
+    setSort('created_at')
+    // since it defaults to sorted by date, no need to tell it to do anything else
     // setArticle(true);
     // setTopic(false);
   }
@@ -23,12 +24,18 @@ function ArticleOptionsNavbar({order, setOrder, sort, setSort}) {
 
   function popwithComments() {
     new Audio(popSound).play();
-    setSort(article.votes)
+    setSort('comment_count')
     // setTopic(true);
     // setArticle(false);
   }
-  function popwithVotes() {
+  function popwithauthor() {
     new Audio(popSound).play();
+    setSort('author')
+  }
+
+  function popwithvotes() {
+    new Audio(popSound).play();
+    setSort('articles.votes')
   }
 
   return (
@@ -43,8 +50,11 @@ function ArticleOptionsNavbar({order, setOrder, sort, setSort}) {
       <button id="white-button" onClick={popwithComments}>
         sort by comments
       </button>
-      <button id="blue-button" onClick={popwithVotes}>
+      <button id="grey-button" onClick={popwithvotes}>
         sort by votes
+        </button>
+      <button id="blue-button" onClick={popwithauthor}>
+        sort by author
       </button>
     </nav>
   );

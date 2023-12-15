@@ -21,7 +21,7 @@ select:focus {
   top:108px;
   background-color: white;
   display: grid;
-  grid-template-columns: 23% 15% 39% 23%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
 }
 
 .ListItemArticles {

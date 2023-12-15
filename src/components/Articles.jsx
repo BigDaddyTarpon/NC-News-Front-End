@@ -8,7 +8,7 @@ function Articles() {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const topic = searchParams.get("topic");
-  const sort_by = searchParams.get("sort_by");
+  //const sort_by = searchParams.get("sort_by");
   //const order = searchParams.get("order");
   // const votes = searchParams.get("votes");
   // const date = searchParams.get("date");
@@ -16,10 +16,10 @@ function Articles() {
   const [error, setError] = useState(false);
   const [order, setOrder] = useState("asc")
   const { user, setUser } = useContext(UserContext);
-  const [sort, setSort] = useState('')
+  const [sort, setSort] = useState(undefined)
 
   useEffect(() => {
-    getAllArticles(topic, order, sort)
+    getAllArticles(topic, sort, order)
       .then((data) => {
         setArticles(data.articles);
         setLoading(false);
@@ -27,7 +27,7 @@ function Articles() {
       .catch((error) => {
         setError(true);
       });
-  }, [topic, order]);
+  }, [topic, order, sort]);
 
   if (loading) {
     return <p>Loading articles! Please wait a moment.</p>;
