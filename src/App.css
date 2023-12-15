@@ -16,6 +16,13 @@ select:focus {
   background-color: white;
   /* needs to change when implement dark mode, e.g. black with white text */
 }
+.ArticleOptionsNavbar-grid-container {
+  position: sticky;
+  top:108px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
 
 .ListItemArticles {
   border-style: double;
