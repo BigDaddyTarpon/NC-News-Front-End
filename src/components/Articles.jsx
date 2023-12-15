@@ -2,17 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllArticles } from "../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
+import ArticleOptionsNavbar from "./ArticleOptionsNavbar";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
-const [searchParams, setSearchParams] = useSearchParams()
-const topic=searchParams.get("topic")
+  const [searchParams, setSearchParams] = useSearchParams();
+  const topic = searchParams.get("topic");
+  const sort_by = searchParams.get("sort_by");
+  //const order = searchParams.get("order");
+  // const votes = searchParams.get("votes");
+  // const date = searchParams.get("date");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [order, setOrder] = useState("asc")
   const { user, setUser } = useContext(UserContext);
+  const [sort, setSort] = useState('')
 
   useEffect(() => {
-    getAllArticles(topic)
+    getAllArticles(topic, order, sort)
       .then((data) => {
         setArticles(data.articles);
         setLoading(false);
@@ -20,7 +27,7 @@ const topic=searchParams.get("topic")
       .catch((error) => {
         setError(true);
       });
-  }, [topic]);
+  }, [topic, order]);
 
   if (loading) {
     return <p>Loading articles! Please wait a moment.</p>;
@@ -31,9 +38,10 @@ const topic=searchParams.get("topic")
 
   return (
     <>
-      <h2> 
+      <ArticleOptionsNavbar order={order} setOrder={setOrder} sort={sort} setSort={setSort}/>
+      <h2>
         {" "}
-        There are currently {articles.length} articles,  here is a summary of
+        There are currently {articles.length} articles, here is a summary of
         each.
       </h2>
       <h3>Click one to focus on it and see the article!</h3>

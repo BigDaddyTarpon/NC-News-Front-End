@@ -11,7 +11,7 @@ export const getUsers = () => {
 };
 
 export const getAllArticles = (topic, order, sort_by) => {
-  return api.get(`/api/articles`, {params:{topic:topic}}).then((response) => {
+  return api.get(`/api/articles`, {params:{topic, order, sort_by}}).then((response) => {
     return response.data;
   });
 };
