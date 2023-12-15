@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllArticles } from "../utils/api";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
-function Articles({ topic }) {
+function Articles() {
   const [articles, setArticles] = useState([]);
-
+const [searchParams, setSearchParams] = useSearchParams()
+const topic=searchParams.get("topic")
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllTopics } from "../utils/api";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import popSound from "../assets/popSound.mp3";
 import Articles from "./Articles";
 
@@ -52,7 +52,8 @@ function Topics() {
       <ul>
         {topics.map((topic) => {
           return (
-            <button onClick={()=>popwithselecttopic(topic.slug)}>
+            //<button onClick={()=>popwithselecttopic(topic.slug)}>
+            <Link to={`/articles?topic=${topic.slug}`}>
             <li key={topic.slug} className="ListItemTopics">
               
               <p>Topic Title: {topic.slug}</p>
@@ -61,19 +62,20 @@ function Topics() {
               <p>{`https://steves-nc-news-project.onrender.com/api/articles?topic=${topic.slug}`}</p>
              
             </li> 
-            </button>
+            </Link>
+            //</button>
           );
         })}
       </ul>
     </>
   )}
-  else{<Articles topic={selectedTopic}/>
+  // else{<Articles topic={selectedTopic}/>
     
 //     return(
 //   <h2> Articles on the topic of {toDisplay} will be coming soon!</h2>)
 // <Articles />
 }
   
-}
+// }
 
 export default Topics
