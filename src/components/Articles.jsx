@@ -20,7 +20,7 @@ const topic=searchParams.get("topic")
       .catch((error) => {
         setError(true);
       });
-  }, []);
+  }, [topic]);
 
   if (loading) {
     return <p>Loading articles! Please wait a moment.</p>;
