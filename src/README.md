@@ -1,4 +1,4 @@
-The deployed version is available on: XXXXXXXXXXXXX
+The deployed version is available on: https://steve-nc-news-front-end.netlify.app/
 
 This project is the Front End to work with the earlier Back End, creating a complete full stack application. It uses react and JSX.
 The back end is available on https://steves-nc-news-project.onrender.com
