@@ -49,6 +49,21 @@ button:hover {
   grid-template-columns: 40% 60%;
   grid-auto-flow: column;
 }
+.top-grid-container-dark {
+  margin: 0.1 rem;
+  width: min (100%);
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-auto-flow: column;
+}
+.top-grid-container-dark {
+  margin: 0.1 rem;
+  width: min (100%);
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-auto-flow: column;
+  background-color: black
+}
 
 .Navbar-grid-container {
   margin: 0.1 rem;

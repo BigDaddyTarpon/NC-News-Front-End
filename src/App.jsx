@@ -18,6 +18,7 @@ function App() {
   return (
     <>
       <UserProvider>
+        <DarkModeProvider>
         <div className="Sticky-fixed-header-container">
           <Header />
           <Navbar />
@@ -30,6 +31,7 @@ function App() {
           <Route path="/articles/:article_id" element={<Article />} />
           <Route path="/articles/:article_id/comments" element={<Comments />} />
         </Routes>
+        </DarkModeProvider>
       </UserProvider>
     </>
   );

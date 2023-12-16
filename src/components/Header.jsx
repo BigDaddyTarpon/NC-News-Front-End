@@ -1,4 +1,10 @@
+import { useContext, useEffect, useState } from "react";
+import { darkMode } from "../contexts/DarkModeContext";
+import { DarkModeContext } from "../contexts/DarkModeContext";
+
 function Header() {
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  const [dark, setDark] = useState(dark);
   return (
     <div className="top-grid-container">
       <h1 className="header"> NC News</h1>

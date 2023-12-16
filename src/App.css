@@ -15,8 +15,22 @@ select:focus {
   top: 0;
   background-color: white;
   z-index: 1;
-  /* needs to change when implement dark mode, e.g. black with white text */
+  
 }
+/* .Sticky-fixed-header-container-light {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  
+}
+.Sticky-fixed-header-container-dark {
+  position: sticky;
+  top: 0;
+  background-color:black;
+  z-index: 1;
+  
+} */
 .ArticleOptionsNavbar-grid-container {
   position: sticky;
   top:5%;
