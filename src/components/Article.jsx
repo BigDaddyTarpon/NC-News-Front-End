@@ -86,7 +86,12 @@ function Article() {
             downvote
           </button>
         </nav>
-        {showComments ? <Comments setShowComments={setShowComments} showComments={showComments} /> : null}
+        {showComments ? (
+          <Comments
+            setShowComments={setShowComments}
+            showComments={showComments}
+          />
+        ) : null}
       </div>
     );
   }

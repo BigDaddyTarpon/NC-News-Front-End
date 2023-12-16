@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import popSound from "../assets/popSound.mp3";
 import { Link } from "react-router-dom";
-import Articles from "./Articles";
 
 function Navbar() {
   const [article, setArticle] = useState(false);
@@ -30,16 +29,16 @@ function Navbar() {
 
   return (
     <nav className="Navbar-grid-container">
-      <button id="red-button" onClick={popwithArticle}><Link to="/articles"> Articles </Link></button>
+      <button id="red-button" onClick={popwithArticle}>
+        <Link to="/articles"> Articles </Link>
+      </button>
       <button id="grey-button" onClick={pop}>
         <Link to="/">🏠</Link>
       </button>
       <button id="white-button" onClick={popwithLogin}>
-       
         <Link to="/users">Logged in as : {user}</Link>{" "}
       </button>
       <button id="blue-button" onClick={popwithTopic}>
-      
         <Link to="/topics">Topics </Link>
       </button>
     </nav>

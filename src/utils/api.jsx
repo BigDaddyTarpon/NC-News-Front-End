@@ -11,9 +11,11 @@ export const getUsers = () => {
 };
 
 export const getAllArticles = (topic, sort_by, order) => {
-  return api.get(`/api/articles`, {params:{topic, sort_by, order}}).then((response) => {
-    return response.data;
-  });
+  return api
+    .get(`/api/articles`, { params: { topic, sort_by, order } })
+    .then((response) => {
+      return response.data;
+    });
 };
 export const getArticleById = (article_id) => {
   return api.get(`/api/articles/${article_id}`).then((response) => {
@@ -54,12 +56,9 @@ export const getAllTopics = () => {
     return response.data;
   });
 };
-// , {params:{topic}}
 
 export const getArticlesByTopic = (topic) => {
-  return api
-    .get(`/api/articles?topic=${topic}`)
-    .then((response) => {
-      return response.data;
-    });
+  return api.get(`/api/articles?topic=${topic}`).then((response) => {
+    return response.data;
+  });
 };

@@ -34,15 +34,14 @@ select:focus {
   padding: 0px;
   max-width: 100%;
   text-align: center;
-  
+
   border-image: url(https://i.imgur.com/040pFDw.png) 20 / 20px round;
   list-style-type: none;
 }
-.ListItemInnerArticles{
-max-width: 85%;
-padding-left: 1rem;
+.ListItemInnerArticles {
+  max-width: 85%;
+  padding-left: 1rem;
 }
-
 
 .ListItemTopics {
   border-style: double;
@@ -56,15 +55,11 @@ padding-left: 1rem;
   border-image: url(https://i.imgur.com/040pFDw.png) 20 / 20px round;
   list-style-type: none;
   max-width: 100%;
-
 }
 .ListItemInnerTopics {
   max-width: 85%;
   padding-left: 1rem;
-  
-  }
-
-
+}
 
 .articleCard {
   border-style: double;
@@ -84,9 +79,8 @@ img {
 }
 body {
   margin: 3px;
-  
 }
-ul{
+ul {
   padding-inline-start: 0rem;
 }
 .article-button-container {

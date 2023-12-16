@@ -12,9 +12,7 @@ function ArticleOptionsNavbar({order, setOrder, sort, setSort}) {
   function popwithDate() {
     new Audio(popSound).play();
     setSort('created_at')
-    // since it defaults to sorted by date, no need to tell it to do anything else
-    // setArticle(true);
-    // setTopic(false);
+    
   }
 
   function popwithFlip() {
@@ -25,8 +23,7 @@ function ArticleOptionsNavbar({order, setOrder, sort, setSort}) {
   function popwithComments() {
     new Audio(popSound).play();
     setSort('comment_count')
-    // setTopic(true);
-    // setArticle(false);
+    
   }
   function popwithauthor() {
     new Audio(popSound).play();

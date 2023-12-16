@@ -1,10 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
-import {
-  deleteCommentbyID,
-  getAllArticles,
-  getCommentsByArticleID,
-} from "../utils/api";
+import { deleteCommentbyID, getCommentsByArticleID } from "../utils/api";
 import popSound from "../assets/popSound.mp3";
 
 import { useParams } from "react-router-dom";
@@ -97,6 +93,9 @@ function Comments({ showComments, setShowComments }) {
                     delete your comment
                   </button>
                 )}
+                {error ? (
+                  <p>error deleting that comment! Better try again later</p>
+                ) : null}
                 {error ? (
                   <p>error deleting that comment! Better try again later</p>
                 ) : null}
