@@ -78,7 +78,7 @@ function Comments({ showComments, setShowComments }) {
           add a comment
         </button>
         {addComment ? (
-          <AddNewComment comments={comments} setComments={setComments} setShowComments={setShowComments} showComments={showComments} />
+        <AddNewComment comments={comments} setComments={setComments} setAddComment={setAddComment} />
         ) : null}
         {comments.map((comment) => {
           return (

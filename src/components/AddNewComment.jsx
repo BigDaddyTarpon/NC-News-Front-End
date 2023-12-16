@@ -5,7 +5,7 @@ import { UserContext } from "../contexts/UserContext";
 import { Link } from "react-router-dom";
 import popSound from "../assets/popSound.mp3";
 
-function AddNewComment({ comments, setComments, showComments, setShowComments}) {
+function AddNewComment({ comments, setComments, setAddComment }) {
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState({ username: user, body: "" });
   const [error, setError] = useState(false);
@@ -14,7 +14,7 @@ function AddNewComment({ comments, setComments, showComments, setShowComments}) 
   const { article_id } = useParams();
 
   function removeCommentBox() {
-    setShowComments(!showComments);
+    setAddComment(false);
     new Audio(popSound).play();
   }
 
