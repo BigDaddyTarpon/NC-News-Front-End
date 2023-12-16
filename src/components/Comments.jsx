@@ -17,9 +17,6 @@ function Comments({ showComments, setShowComments }) {
   const { user, setUser } = useContext(UserContext);
   const { article_id } = useParams();
   const [addComment, setAddComment] = useState(false);
-  
-
-  
 
   function popwithAddComment() {
     setAddComment(true);
@@ -31,20 +28,16 @@ function Comments({ showComments, setShowComments }) {
     new Audio(popSound)
       .play()
       .then((response) => {
-        
         setComments(
           comments.filter((comment) => {
             return comment.comment_id !== comment_id;
-            
           })
         );
       })
       .catch(() => {
         setError(true);
       });
-      
   }
-  
 
   useEffect(() => {
     getCommentsByArticleID(article_id)
@@ -74,15 +67,25 @@ function Comments({ showComments, setShowComments }) {
   } else {
     return (
       <ul>
+        <div id="add-new-comment-buttons-and-form-sticky-container">
         <button id="red-button" onClick={popwithAddComment}>
           add a comment
         </button>
         {addComment ? (
-        <AddNewComment comments={comments} setComments={setComments} setAddComment={setAddComment} />
+          <AddNewComment
+            comments={comments}
+            setComments={setComments}
+            setAddComment={setAddComment}
+          />
         ) : null}
+        </div>
         {comments.map((comment) => {
           return (
-            <li key={comment.comment_id} className="post-it-style" id="Listcomments">
+            <li
+              key={comment.comment_id}
+              className="post-it-style"
+              id="Listcomments"
+            >
               <p>comment by {comment.author}</p>
               <p>
                 Votes: {comment.votes} {"   "}
@@ -94,7 +97,9 @@ function Comments({ showComments, setShowComments }) {
                     delete your comment
                   </button>
                 )}
-                {error ? <p>error deleting that comment! Better try again later</p> : null}
+                {error ? (
+                  <p>error deleting that comment! Better try again later</p>
+                ) : null}
               </p>
               <p>{comment.body}</p>
             </li>

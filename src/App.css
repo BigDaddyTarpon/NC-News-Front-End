@@ -19,7 +19,7 @@ select:focus {
 }
 .ArticleOptionsNavbar-grid-container {
   position: sticky;
-  top:108px;
+  top:5%;
   background-color: white;
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
@@ -89,4 +89,17 @@ body {
 ul{
   padding-inline-start: 0rem;
 }
+.article-button-container {
+  position: sticky;
+  top:0%;
+  z-index: 5;
+  background-color:white;
+}
 
+#add-new-comment-buttons-and-form-sticky-container{
+  position: sticky;
+  top:4%;
+  z-index: 7;
+  background-color:white;
+  padding-bottom: 0.1rem;
+}
