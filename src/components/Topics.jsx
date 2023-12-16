@@ -55,12 +55,12 @@ function Topics() {
             return (
               <Link to={`/articles?topic=${topic.slug}`}>
                 <li key={index.toString()} className="ListItemTopics">
-                  <p>Topic Title: {topic.slug}</p>
-                  <p>Topic description: {topic.description}</p>
-                  <p>
+                  <p className="ListItemInnerTopics">Topic Title: {topic.slug}</p>
+                  <p className="ListItemInnerTopics">Topic description: {topic.description}</p>
+                  <p className="ListItemInnerTopics">
                     A sharable link to only load the articles on this topics is;
                   </p>
-                  <p>{`https://steves-nc-news-project.onrender.com/api/articles?topic=${topic.slug}`}</p>
+                  <p className="ListItemInnerTopics">{`https://steves-nc-news-project.onrender.com/api/articles?topic=${topic.slug}`}</p>
                 </li>
               </Link>
             );
