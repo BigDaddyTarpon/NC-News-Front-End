@@ -50,11 +50,11 @@ function Articles() {
           return (
             <li key={article.article_id} className="ListItemArticles">
               <Link to={`/articles/${article.article_id}`}>
-                <p>Article Title: {article.title}</p>
-                <p>
+                <p className="ListItemInnerArticles">Article Title: {article.title}</p>
+                <p className="ListItemInnerArticles">
                   Topic: {article.topic} , Written by: {article.author}
                 </p>
-                <p>
+                <p className="ListItemInnerArticles">
                   It has {article.votes} votes, and {article.comment_count}{" "}
                   comments
                 </p>

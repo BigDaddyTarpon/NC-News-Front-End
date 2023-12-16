@@ -82,7 +82,7 @@ function Comments({ showComments, setShowComments }) {
         ) : null}
         {comments.map((comment) => {
           return (
-            <li key={comment.comment_id} className="Listcomments">
+            <li key={comment.comment_id} className="post-it-style" id="Listcomments">
               <p>comment by {comment.author}</p>
               <p>
                 Votes: {comment.votes} {"   "}
