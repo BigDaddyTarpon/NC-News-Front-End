@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext, UserProvider } from "../contexts/UserContext";
+import { UserContext, } from "../contexts/UserContext";
 import { getAllArticles } from "../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
 import ArticleOptionsNavbar from "./ArticleOptionsNavbar";
@@ -8,15 +8,12 @@ function Articles() {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const topic = searchParams.get("topic");
-  //const sort_by = searchParams.get("sort_by");
-  //const order = searchParams.get("order");
-  // const votes = searchParams.get("votes");
-  // const date = searchParams.get("date");
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [order, setOrder] = useState("asc")
+  const [order, setOrder] = useState("asc");
   const { user, setUser } = useContext(UserContext);
-  const [sort, setSort] = useState(undefined)
+  const [sort, setSort] = useState(undefined);
 
   useEffect(() => {
     getAllArticles(topic, sort, order)
@@ -38,7 +35,12 @@ function Articles() {
 
   return (
     <>
-      <ArticleOptionsNavbar order={order} setOrder={setOrder} sort={sort} setSort={setSort}/>
+      <ArticleOptionsNavbar
+        order={order}
+        setOrder={setOrder}
+        sort={sort}
+        setSort={setSort}
+      />
       <h2>
         {" "}
         There are currently {articles.length} articles, here is a summary of
@@ -50,7 +52,9 @@ function Articles() {
           return (
             <li key={article.article_id} className="ListItemArticles">
               <Link to={`/articles/${article.article_id}`}>
-                <p className="ListItemInnerArticles">Article Title: {article.title}</p>
+                <p className="ListItemInnerArticles">
+                  Article Title: {article.title}
+                </p>
                 <p className="ListItemInnerArticles">
                   Topic: {article.topic} , Written by: {article.author}
                 </p>

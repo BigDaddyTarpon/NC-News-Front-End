@@ -3,7 +3,6 @@ import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllTopics } from "../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
 import popSound from "../assets/popSound.mp3";
-import Articles from "./Articles";
 
 function Topics() {
   const [topics, setTopics] = useState([]);
@@ -55,8 +54,12 @@ function Topics() {
             return (
               <Link to={`/articles?topic=${topic.slug}`}>
                 <li key={index.toString()} className="ListItemTopics">
-                  <p className="ListItemInnerTopics">Topic Title: {topic.slug}</p>
-                  <p className="ListItemInnerTopics">Topic description: {topic.description}</p>
+                  <p className="ListItemInnerTopics">
+                    Topic Title: {topic.slug}
+                  </p>
+                  <p className="ListItemInnerTopics">
+                    Topic description: {topic.description}
+                  </p>
                   <p className="ListItemInnerTopics">
                     A sharable link to only load the articles on this topics is;
                   </p>
