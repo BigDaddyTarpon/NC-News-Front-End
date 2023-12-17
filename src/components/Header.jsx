@@ -3,38 +3,26 @@ import { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "../contexts/DarkModeContext";
 
 function Header() {
+
+  function popwithmute() {}
+
+  function popwiththeme(){}
+
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
   const [dark, setDark] = useState("dark");
   return (
-    <div className="top-grid-container">
-      <h1 className="header"> NC News</h1>
-      <nav className="options-bar">
-        <form>
-          <label>
-            Connection -
-            <select name="Connection">
-              <option>set to: Good</option>
-              <option>set to: Slow</option>
-            </select>
-          </label>
-          <div>
-            Volume ------
-            <select name="Volume">
-              <option>set to: On</option>
-              <option>set to: Mute</option>
-            </select>
-          </div>
-
-          <label>
-            Dark mode --
-            <select name="Dark mode">
-              <option>set to: On</option>
-              <option>set to: Off</option>
-            </select>
-          </label>
-        </form>
-      </nav>
+    //  <nav className="options-bar"> 
+    <div className={`top-grid-container-${darkMode}`}>
+      <button id="red-button" onClick={popwithmute}> 
+            sounds
+          </button>
+      <h1 className={`header-${darkMode}`}> NC News</h1>
+      <button id="blue-button" onClick={popwiththeme}>
+            theme
+          </button>
+        
     </div>
+      // </nav> 
   );
 }
 

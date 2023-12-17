@@ -1,5 +1,16 @@
-.header {
-  padding-right: 10px;
+.header-light {
+  /* padding-right: 10px; */
+  color: black;
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.header-dark {
+  /* padding-right: 10px; */
+  color: white;
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 select:focus {
   background-color: lightblue;
