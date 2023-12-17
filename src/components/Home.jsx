@@ -1,10 +1,14 @@
 import popSound from "../assets/popSound.mp3";
-import { useState } from "react";
+import { MuteModeContext } from "../contexts/MuteModeContext";
+import { useState, useContext } from "react";
 
 function Home() {
   const [count, setCount] = useState(0);
+  const { muteMode, setMuteMode } = useContext(MuteModeContext);
+  
+
   function playWithCount() {
-    new Audio(popSound, { volume: 1.0 }).play();
+   muteMode=== "soundon" ? new Audio(popSound).play() : null;
     setCount((count) => count + 1);
   }
   return (
@@ -57,8 +61,4 @@ function Home() {
 
 export default Home;
 
-// Simple to Mute, just use if condition to allow/prevent playback, but ...
-// IF figure out how to set vol, can have 1.0, 0.5 or 0 (mute)
-// {volume: 0.5} in JS is half volume
-// You can controll the volume of your Audio object using the volume atrribute (0=no sound, 1=max volume).
-// "So just set the range of your input to be between 0 and 1 and use a useffect to change the volume attribute whenever the input's value changes".
+ 

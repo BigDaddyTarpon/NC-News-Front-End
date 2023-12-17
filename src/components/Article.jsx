@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById, incrementArticleVotes } from "../utils/api";
 import { useContext, useEffect, useState } from "react";
 import popSound from "../assets/popSound.mp3";
+import { MuteModeContext } from "../contexts/MuteModeContext";
 
 import Comments from "./Comments";
 
@@ -13,14 +14,15 @@ function Article() {
   const [showComments, setShowComments] = useState(false);
   const [displayedVotes, setDisplayedVotes] = useState(0);
   const [newVote, setNewVote] = useState(1);
+  const { muteMode, setMuteMode } = useContext(MuteModeContext);
 
   function popwithcomments() {
     setShowComments(!showComments);
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
   }
 
   function popwithupvote() {
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
     setDisplayedVotes(displayedVotes + 1);
 
     incrementArticleVotes(article_id, 1).catch(() => {
@@ -30,7 +32,7 @@ function Article() {
   }
 
   function popwithdownvote() {
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
     setDisplayedVotes(displayedVotes - 1);
 
     incrementArticleVotes(article_id, -1).catch(() => {

@@ -29,7 +29,7 @@ nav a {
 
 button {
   border-radius: 10px;
-  border: 3px solid transparent;
+  border: 1px solid black;
   padding: 0.1em 0.2em;
   font-size: 1em;
   font-weight: 500;
@@ -40,14 +40,32 @@ button {
 button:hover {
   border-color: black;
   transform: scale(1.1);
+  border: 3px solid black
 }
 
-.top-grid-container {
+/* .top-grid-container {
   margin: 0.1 rem;
   width: min (100%);
   display: grid;
   grid-template-columns: 40% 60%;
+  grid-auto-flow: column; */
+/* } */
+.top-grid-container-light {
+  margin: 0.1 rem;
+  width: min (100%);
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
   grid-auto-flow: column;
+
+}
+.top-grid-container-dark {
+  margin: 0.1 rem;
+  width: min (100%);
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-auto-flow: column;
+  background-color: black
+  /* color(white) */
 }
 
 .Navbar-grid-container {

@@ -4,17 +4,18 @@ import { addCommentToArticleByID } from "../utils/api";
 import { UserContext } from "../contexts/UserContext";
 import { Link } from "react-router-dom";
 import popSound from "../assets/popSound.mp3";
+import { MuteModeContext } from "../contexts/MuteModeContext";
 
 function AddNewComment({ comments, setComments, setAddComment }) {
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState({ username: user, body: "" });
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false); const { muteMode, setMuteMode } = useContext(MuteModeContext);
 
   const { article_id } = useParams();
 
   function removeCommentBox() {
     setAddComment(false);
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null
   }
 
   const handleChange = (event) => {
@@ -30,9 +31,10 @@ function AddNewComment({ comments, setComments, setAddComment }) {
     event.preventDefault();
     addCommentToArticleByID(article_id, newComment)
       .then((response) => {
-        new Audio(popSound).play();
+        
         setComments([response, ...comments]);
         setNewComment({ username: user, body: "" });
+        muteMode=== "soundon" ? new Audio(popSound).play() : null;
       })
 
       .catch(() => {

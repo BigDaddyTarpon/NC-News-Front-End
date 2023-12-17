@@ -27,7 +27,7 @@ function Articles() {
   }, [topic, order, sort]);
 
   if (loading) {
-    return <p>Loading articles! Please wait a moment.</p>;
+    return <p>Loading articles! Please wait, this may take a while on the first load.</p>;
   }
   if (error) {
     return <p>error!</p>;

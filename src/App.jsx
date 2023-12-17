@@ -1,4 +1,7 @@
 import { UserProvider } from "./contexts/UserContext";
+import { DarkModeProvider } from "./contexts/DarkModeContext";
+import { MuteModeProvider } from "./contexts/MuteModeContext";
+
 import Users from "./components/Users";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -18,6 +21,8 @@ function App() {
   return (
     <>
       <UserProvider>
+      <MuteModeProvider>
+        <DarkModeProvider>
         <div className="Sticky-fixed-header-container">
           <Header />
           <Navbar />
@@ -30,6 +35,8 @@ function App() {
           <Route path="/articles/:article_id" element={<Article />} />
           <Route path="/articles/:article_id/comments" element={<Comments />} />
         </Routes>
+        </DarkModeProvider>
+        </MuteModeProvider>
       </UserProvider>
     </>
   );

@@ -1,30 +1,32 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import popSound from "../assets/popSound.mp3";
+import { MuteModeContext } from "../contexts/MuteModeContext";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   const [article, setArticle] = useState(false);
   const [topic, setTopic] = useState(false);
   const { user, setUser } = useContext(UserContext);
+  const { muteMode, setMuteMode } = useContext(MuteModeContext);
 
   function popwithArticle() {
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
     setArticle(true);
     setTopic(false);
   }
 
   function popwithLogin() {
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
   }
 
   function popwithTopic() {
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
     setTopic(true);
     setArticle(false);
   }
   function pop() {
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
   }
 
   return (

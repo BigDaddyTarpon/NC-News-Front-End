@@ -1,5 +1,16 @@
-.header {
-  padding-right: 10px;
+.header-light {
+  /* padding-right: 10px; */
+  color: black;
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.header-dark {
+  /* padding-right: 10px; */
+  color: white;
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 select:focus {
   background-color: lightblue;
@@ -15,8 +26,22 @@ select:focus {
   top: 0;
   background-color: white;
   z-index: 1;
-  /* needs to change when implement dark mode, e.g. black with white text */
+  
 }
+/* .Sticky-fixed-header-container-light {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  
+}
+.Sticky-fixed-header-container-dark {
+  position: sticky;
+  top: 0;
+  background-color:black;
+  z-index: 1;
+  
+} */
 .ArticleOptionsNavbar-grid-container {
   position: sticky;
   top:5%;
