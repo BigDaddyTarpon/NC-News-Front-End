@@ -3,7 +3,7 @@ import { UserContext, UserProvider } from "../contexts/UserContext";
 import { deleteCommentbyID, getCommentsByArticleID } from "../utils/api";
 import popSound from "../assets/popSound.mp3";
 import { MuteModeContext } from "../contexts/MuteModeContext";
-
+import { DarkModeContext } from "../contexts/DarkModeContext";
 import { useParams } from "react-router-dom";
 import AddNewComment from "./AddNewComment";
 
@@ -15,7 +15,8 @@ function Comments({ showComments, setShowComments }) {
   const { article_id } = useParams();
   const [addComment, setAddComment] = useState(false);
   const { muteMode, setMuteMode } = useContext(MuteModeContext);
-
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  
   function popwithAddComment() {
     setAddComment(true);
     muteMode=== "soundon" ? new Audio(popSound).play() : null;
@@ -64,7 +65,7 @@ function Comments({ showComments, setShowComments }) {
   } else {
     return (
       <ul>
-        <div id="add-new-comment-buttons-and-form-sticky-container">
+        <div id={`add-new-comment-buttons-and-form-sticky-container-${darkMode}`}>
         <button id="red-button" onClick={popwithAddComment}>
           add a comment
         </button>

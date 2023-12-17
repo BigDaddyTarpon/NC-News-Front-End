@@ -3,7 +3,7 @@ import { getArticleById, incrementArticleVotes } from "../utils/api";
 import { useContext, useEffect, useState } from "react";
 import popSound from "../assets/popSound.mp3";
 import { MuteModeContext } from "../contexts/MuteModeContext";
-
+import { DarkModeContext } from "../contexts/DarkModeContext";
 import Comments from "./Comments";
 
 function Article() {
@@ -15,6 +15,7 @@ function Article() {
   const [displayedVotes, setDisplayedVotes] = useState(0);
   const [newVote, setNewVote] = useState(1);
   const { muteMode, setMuteMode } = useContext(MuteModeContext);
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
   function popwithcomments() {
     setShowComments(!showComments);
@@ -61,7 +62,7 @@ function Article() {
     );
   } else {
     return (
-      <div className="articleCard">
+      <div className={`articleCard-${darkMode}`}>
         <h2>{article.title}</h2>
         <p className="ArticleCardBodyText">
           written by {article.author}, on the topic of; {article.topic}.
@@ -75,7 +76,7 @@ function Article() {
           Total votes {article.votes + displayedVotes}, and there are{" "}
           {article.comment_count} comments
         </p>
-        <nav className="article-button-container">
+        <nav className={`article-button-container-${darkMode}`}>
           <button id="red-button" onClick={popwithupvote}>
             {" "}
             upvote{" "}

@@ -7,9 +7,9 @@ a:hover {
   color: #535bf2;
 } */
 
-nav a {
+/* nav a {
   color: black;
-}
+} */
 #red-button {
   background-color: #f56f6f;
   color: black;
@@ -73,6 +73,22 @@ button:hover {
   padding: 0.1 rem;
   display: grid;
   grid-template-columns: 23% 15% 39% 23%;
+}
+
+.Navbar-grid-container-light {
+  margin: 0.1 rem;
+  padding: 0.1 rem;
+  display: grid;
+  grid-template-columns: 23% 15% 39% 23%;
+  background-color: white;
+}
+
+.Navbar-grid-container-dark {
+  margin: 0.1 rem;
+  padding: 0.1 rem;
+  display: grid;
+  grid-template-columns: 23% 15% 39% 23%;
+  background-color: black;
 }
 
 /* parchment style background to test 

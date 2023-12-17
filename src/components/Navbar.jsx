@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import popSound from "../assets/popSound.mp3";
 import { MuteModeContext } from "../contexts/MuteModeContext";
+import { DarkModeContext } from "../contexts/DarkModeContext";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -9,6 +10,7 @@ function Navbar() {
   const [topic, setTopic] = useState(false);
   const { user, setUser } = useContext(UserContext);
   const { muteMode, setMuteMode } = useContext(MuteModeContext);
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
   function popwithArticle() {
     muteMode=== "soundon" ? new Audio(popSound).play() : null;
@@ -30,7 +32,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="Navbar-grid-container">
+    <nav className={`Navbar-grid-container-${darkMode}`}>
       <button id="red-button" onClick={popwithArticle}>
         <Link to="/articles"> Articles </Link>
       </button>
