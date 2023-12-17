@@ -9,7 +9,7 @@ function Home() {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
   function playWithCount() {
-   muteMode=== "soundon" ? new Audio(popSound).play() : null;
+    muteMode === "soundon" ? new Audio(popSound).play() : null;
     setCount((count) => count + 1);
   }
   return (
@@ -29,7 +29,8 @@ function Home() {
       <p>
         {" "}
         If not logged in, you will not be able to access all the features, so
-        there is no security on this showcase App.
+        there is no security on this showcase App. For ease of use when
+        previewing, a default user is logged in.
       </p>
       <p>
         {" "}
@@ -39,14 +40,16 @@ function Home() {
         Articles, Topics, user, or come back here with 🏠 'Home' button.
       </p>
       <p>
+        There is a dark mode available with the options button at the top right.
+      </p>
+      <p>
         {" "}
         The app is designed with optional audio queues as an extra feedback
         mechanism on a successful click, if this is undesirable use the mute
-        option at the top in the options bar. If you are not sure about having
-        sound on, test out the press to 'play pop while counting' button below
-        (with the mute option off) and compare it to the 'count silently'
-        botton. Both include a subtle colour change on click for feedback on a
-        successful click.
+        option at the top left. If you are not sure about having sound on, test
+        out the press to 'play pop while counting' button below (with the mute
+        option off) and compare it to the 'count silently' botton. Both include
+        a subtle colour change on click for feedback on a successful click.
       </p>
 
       <button id="red-button" onClick={playWithCount}>
@@ -61,5 +64,3 @@ function Home() {
 }
 
 export default Home;
-
- 

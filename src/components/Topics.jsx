@@ -17,7 +17,7 @@ function Topics() {
   const { user, setUser } = useContext(UserContext);
 
   function popwithselecttopic(topic) {
-    muteMode=== "soundon" ? new Audio(popSound).play() : null;
+    muteMode === "soundon" ? new Audio(popSound).play() : null;
     setToDisplay(topic);
     setSelectedTopic(topic);
   }
@@ -47,7 +47,9 @@ function Topics() {
           There are currently {topics.length} topics, here is a list of the
           available topics.
         </h2>
-        <h3 className={`h3-${darkMode}`}>Click a topic to see the articles in that topic in the App!</h3>
+        <h3 className={`h3-${darkMode}`}>
+          Click a topic to see the articles in that topic in the App!
+        </h3>
         <p className={`h3-${darkMode}`}>
           Or share the link provided with friends via your favourite messaging
           App
@@ -56,7 +58,10 @@ function Topics() {
           {topics.map((topic, index) => {
             return (
               <Link to={`/articles?topic=${topic.slug}`}>
-                <li key={index.toString()} className={`ListItemTopics-${darkMode}`}>
+                <li
+                  key={index.toString()}
+                  className={`ListItemTopics-${darkMode}`}
+                >
                   <p className="ListItemInnerTopics">
                     Topic Title: {topic.slug}
                   </p>
@@ -64,9 +69,10 @@ function Topics() {
                     Topic description: {topic.description}
                   </p>
                   <p className="ListItemInnerTopics">
-                    A sharable link to only load the articles on this topics is;
+                    A sharable link to only load the articles on this topics is
+                    displayed in the nav bar after selecting a topic.
                   </p>
-                  <p className="ListItemInnerTopics">{`https://steves-nc-news-project.onrender.com/api/articles?topic=${topic.slug}`}</p>
+                  
                 </li>
               </Link>
             );
