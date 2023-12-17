@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext} from "../contexts/UserContext";
-
+import { MuteModeContext } from "../contexts/MuteModeContext";
+import popSound from "../assets/popSound.mp3";
 import { getUsers } from "../utils/api";
 
 function Users() {
@@ -8,9 +9,11 @@ function Users() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);
+  const { muteMode, setMuteMode } = useContext(MuteModeContext);
 
   function handleUserClick(username) {
     setUser(username);
+    muteMode=== "soundon" ? new Audio(popSound).play() : null
   }
 
   useEffect(() => {

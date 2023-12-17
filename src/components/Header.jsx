@@ -13,7 +13,7 @@ function Header() {
 
   function popwithmute() {
     setMuteMode(muteMode==="soundon" ? "soundoff" : "soundon")
-    muteMode=== "soundon" ? new Audio(popSound).play() : null
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
   }
  
 

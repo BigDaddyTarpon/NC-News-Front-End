@@ -3,18 +3,20 @@ import { UserContext, UserProvider } from "../contexts/UserContext";
 import { getAllTopics } from "../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
 import popSound from "../assets/popSound.mp3";
+import { MuteModeContext } from "../contexts/MuteModeContext";
 
 function Topics() {
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [toDisplay, setToDisplay] = useState("topics");
+  const { muteMode, setMuteMode } = useContext(MuteModeContext);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);
 
   function popwithselecttopic(topic) {
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
     setToDisplay(topic);
     setSelectedTopic(topic);
   }

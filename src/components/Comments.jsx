@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 import { deleteCommentbyID, getCommentsByArticleID } from "../utils/api";
 import popSound from "../assets/popSound.mp3";
+import { MuteModeContext } from "../contexts/MuteModeContext";
 
 import { useParams } from "react-router-dom";
 import AddNewComment from "./AddNewComment";
@@ -13,17 +14,17 @@ function Comments({ showComments, setShowComments }) {
   const { user, setUser } = useContext(UserContext);
   const { article_id } = useParams();
   const [addComment, setAddComment] = useState(false);
+  const { muteMode, setMuteMode } = useContext(MuteModeContext);
 
   function popwithAddComment() {
     setAddComment(true);
-    new Audio(popSound).play();
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
   }
 
   function popwithdeleteComment(comment_id) {
-    deleteCommentbyID(comment_id);
-    new Audio(popSound)
-      .play()
-      .then((response) => {
+    muteMode=== "soundon" ? new Audio(popSound).play() : null;
+    deleteCommentbyID(comment_id)
+    .then((response) => {
         setComments(
           comments.filter((comment) => {
             return comment.comment_id !== comment_id;
