@@ -1,4 +1,5 @@
 import { UserProvider } from "./contexts/UserContext";
+import { DarkModeProvider } from "./contexts/DarkModeContext";
 import Users from "./components/Users";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";

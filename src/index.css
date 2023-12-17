@@ -49,7 +49,7 @@ button:hover {
   grid-template-columns: 40% 60%;
   grid-auto-flow: column;
 }
-.top-grid-container-dark {
+.top-grid-container-light {
   margin: 0.1 rem;
   width: min (100%);
   display: grid;
