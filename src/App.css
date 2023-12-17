@@ -62,7 +62,7 @@ select:focus {
 }
 .ArticleOptionsNavbar-grid-container-light {
   position: sticky;
-  top:5%;
+  top: 0%;
   /* background-color: white; */
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
@@ -71,7 +71,7 @@ select:focus {
   background-color: white;
 }
 .ArticleOptionsNavbar-grid-container-dark {
-  position: sticky;
+  position: fixed;
   top:5%;
   /* background-color: white; */
   display: grid;

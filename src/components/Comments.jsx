@@ -16,7 +16,7 @@ function Comments({ showComments, setShowComments }) {
   const [addComment, setAddComment] = useState(false);
   const { muteMode, setMuteMode } = useContext(MuteModeContext);
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
-  
+
   function popwithAddComment() {
     setAddComment(true);
     muteMode=== "soundon" ? new Audio(popSound).play() : null;
@@ -81,7 +81,7 @@ function Comments({ showComments, setShowComments }) {
           return (
             <li
               key={comment.comment_id}
-              className="post-it-style"
+              className={`post-it-style-${darkMode}`}
               id="Listcomments"
             >
               <p>comment by {comment.author}</p>

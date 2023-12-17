@@ -123,8 +123,20 @@ with this; <div class="parchment-block">
   list-style: none;
 }
 
-.post-it-style {
+.post-it-style-light {
   background-color: rgb(241, 241, 109);
+  box-shadow: 0px 2px 2px 3px #909090;
+  width: fit-content;
+  min-width: 60%;
+  max-width: 100%;
+  list-style: none;
+  padding-bottom: 0.1rem;
+  text-align: center;
+}
+
+.post-it-style-dark {
+  background-color: rgb(80, 80, 1);
+  color: white;
   box-shadow: 0px 2px 2px 3px #909090;
   width: fit-content;
   min-width: 60%;
