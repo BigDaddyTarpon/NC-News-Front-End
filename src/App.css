@@ -12,6 +12,24 @@
   margin-top: 0.4rem;
   margin-bottom: 0.4rem;
 }
+.main-light{
+  color:black;
+  background-color: white;
+}
+.main-dark{
+color: white;
+background-color: black;
+}
+
+.articles-page-light {
+  background-color: white;
+  color: black;
+}
+.articles-page-dark {
+  color: white;
+  background-color: black;
+}
+
 select:focus {
   background-color: lightblue;
   scale: 1.5;
@@ -28,10 +46,10 @@ select:focus {
   z-index: 1;
   
 }
-/* .Sticky-fixed-header-container-light {
+.Sticky-fixed-header-container-light {
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: black;
   z-index: 1;
   
 }
@@ -41,19 +59,42 @@ select:focus {
   background-color:black;
   z-index: 1;
   
-} */
-.ArticleOptionsNavbar-grid-container {
+}
+.ArticleOptionsNavbar-grid-container-light {
   position: sticky;
-  top:5%;
-  background-color: white;
+  top: 0%;
+  /* background-color: white; */
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   z-index: 3;
+  color: black;
+  background-color: white;
+}
+.ArticleOptionsNavbar-grid-container-dark {
+  position: fixed;
+  top:5%;
+  /* background-color: white; */
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  z-index: 3;
+  color: white;
+  background-color: black;
 }
 
-.ListItemArticles {
+.ListItemArticles-light {
   border-style: double;
   background-color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, Tahoma, Sans-serif;
+  font-size: medium;
+  padding: 0px;
+  max-width: 100%;
+  text-align: center;
+  border-image: url(https://i.imgur.com/040pFDw.png) 20 / 20px round;
+  list-style-type: none;
+}
+.ListItemArticles-dark {
+  border-style: double;
+  background-color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, Tahoma, Sans-serif;
   font-size: medium;
   padding: 0px;
@@ -68,7 +109,20 @@ select:focus {
   padding-left: 1rem;
 }
 
-.ListItemTopics {
+.ListItemInnerArticles-light {
+  max-width: 85%;
+  padding-left: 1rem;
+  color: black;
+  background-color: white;
+}
+.ListItemInnerArticles-dark {
+  max-width: 85%;
+  padding-left: 1rem;
+  color: white;
+  background-color: black;
+}
+
+.ListItemTopics-light {
   border-style: double;
   border: 1 px;
   background-color: #fff;
@@ -80,22 +134,74 @@ select:focus {
   border-image: url(https://i.imgur.com/040pFDw.png) 20 / 20px round;
   list-style-type: none;
   max-width: 100%;
+  color: black;
+  background-color: white;
+}
+.ListItemTopics-dark {
+  margin: 0px;
+  border-style: double;
+  border: 1 px;
+  background-color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, Tahoma, Sans-serif;
+  font-size: medium;
+  padding: 0.1rem;
+  margin: 0.1 rem auto;
+  text-align: center;
+  border-image: url(https://i.imgur.com/040pFDw.png) 20 / 20px round;
+  list-style-type: none;
+  max-width: 100%;
+  color: white;
+  background-color: black;
 }
 .ListItemInnerTopics {
   max-width: 85%;
   padding-left: 1rem;
 }
 
-.articleCard {
+.articleCard-light {
   border-style: double;
   border: 1 px;
   height: max-content;
+  background-color:white;
+  color: black;
+}
+.articleCard-dark {
+  border-style: double;
+  border: 1 px;
+  height: max-content;
+  background-color: black;
+  color: white;
 }
 .ArticleCardBodyText {
   margin: 2px;
 }
 h2 {
-  margin: 2px;
+  margin: 0px;
+  padding: 0.5rem;
+}
+.h2-light {
+  margin: 0px;
+  padding: 0.5rem;
+  background-color:white;
+  color: black;
+}
+.h2-dark {
+  margin: 0px;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+}
+.h3-light {
+  margin: 0px;
+  padding: 0.5rem;
+  background-color:white;
+  color: black;
+}
+.h3-dark {
+  margin: 0px;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
 }
 
 img {
@@ -108,17 +214,46 @@ body {
 ul {
   padding-inline-start: 0rem;
 }
-.article-button-container {
+.ul-light {
+  padding-inline-start: 0rem;
+  background-color:white;
+  color: black;
+  margin: 0%;
+}
+.ul-dark {
+  padding-inline-start: 0rem;
+  background-color: black;
+  color: white;
+  margin: 0%;
+}
+.article-button-container-light {
   position: sticky;
   top:0%;
   z-index: 5;
   background-color:white;
+  color: black;
+}
+.article-button-container-dark {
+  position: sticky;
+  top:0%;
+  z-index: 5;
+  background-color: black;
+  color: white;
 }
 
-#add-new-comment-buttons-and-form-sticky-container{
+#add-new-comment-buttons-and-form-sticky-container-light {
   position: sticky;
   top:4%;
   z-index: 7;
-  background-color:white;
   padding-bottom: 0.1rem;
+  background-color:white;
+  color: black;
+}
+#add-new-comment-buttons-and-form-sticky-container-dark {
+  position: sticky;
+  top:4%;
+  z-index: 7;
+  padding-bottom: 0.1rem;
+  background-color: black;
+  color: white;
 }

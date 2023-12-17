@@ -1,6 +1,7 @@
 import { UserProvider } from "./contexts/UserContext";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
 import { MuteModeProvider } from "./contexts/MuteModeContext";
+import { useContext, useEffect, useState } from "react";
 
 import Users from "./components/Users";
 import Header from "./components/Header";
@@ -18,6 +19,7 @@ import User from "./components/Users";
 
 
 function App() {
+
   return (
     <>
       <UserProvider>

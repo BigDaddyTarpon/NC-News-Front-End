@@ -4,13 +4,14 @@ import { getAllTopics } from "../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
 import popSound from "../assets/popSound.mp3";
 import { MuteModeContext } from "../contexts/MuteModeContext";
+import { DarkModeContext } from "../contexts/DarkModeContext";
 
 function Topics() {
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [toDisplay, setToDisplay] = useState("topics");
   const { muteMode, setMuteMode } = useContext(MuteModeContext);
-
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { user, setUser } = useContext(UserContext);
@@ -42,20 +43,20 @@ function Topics() {
   if (toDisplay === "topics") {
     return (
       <>
-        <h2>
+        <h2 className={`h2-${darkMode}`}>
           There are currently {topics.length} topics, here is a list of the
           available topics.
         </h2>
-        <h3>Click a topic to see the articles in that topic in the App!</h3>
-        <p>
+        <h3 className={`h3-${darkMode}`}>Click a topic to see the articles in that topic in the App!</h3>
+        <p className={`h3-${darkMode}`}>
           Or share the link provided with friends via your favourite messaging
           App
         </p>
-        <ul>
+        <ul className={`ul-${darkMode}`}>
           {topics.map((topic, index) => {
             return (
               <Link to={`/articles?topic=${topic.slug}`}>
-                <li key={index.toString()} className="ListItemTopics">
+                <li key={index.toString()} className={`ListItemTopics-${darkMode}`}>
                   <p className="ListItemInnerTopics">
                     Topic Title: {topic.slug}
                   </p>

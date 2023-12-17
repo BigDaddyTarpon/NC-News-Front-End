@@ -4,12 +4,14 @@ import popSound from "../assets/popSound.mp3";
 import { MuteModeContext } from "../contexts/MuteModeContext";
 import { Link } from "react-router-dom";
 import Articles from "./Articles";
+import { DarkModeContext } from "../contexts/DarkModeContext";
 
 function ArticleOptionsNavbar({order, setOrder, sort, setSort}) {
   const [article, setArticle] = useState(false);
   const [topic, setTopic] = useState(false);
   const { user, setUser } = useContext(UserContext);
   const { muteMode, setMuteMode } = useContext(MuteModeContext);
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
   function popwithDate() {
     muteMode=== "soundon" ? new Audio(popSound).play() : null;
@@ -38,7 +40,7 @@ function ArticleOptionsNavbar({order, setOrder, sort, setSort}) {
   }
 
   return (
-    <nav className="ArticleOptionsNavbar-grid-container">
+    <nav className={`ArticleOptionsNavbar-grid-container-${darkMode}`}>
       <button id="red-button" onClick={popwithDate}>
         {" "}
         sort by Date{" "}

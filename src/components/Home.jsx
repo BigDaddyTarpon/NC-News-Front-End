@@ -1,18 +1,19 @@
 import popSound from "../assets/popSound.mp3";
 import { MuteModeContext } from "../contexts/MuteModeContext";
 import { useState, useContext } from "react";
+import { DarkModeContext } from "../contexts/DarkModeContext";
 
 function Home() {
   const [count, setCount] = useState(0);
   const { muteMode, setMuteMode } = useContext(MuteModeContext);
-  
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
   function playWithCount() {
    muteMode=== "soundon" ? new Audio(popSound).play() : null;
     setCount((count) => count + 1);
   }
   return (
-    <main>
+    <main className={`main-${darkMode}`}>
       <h2>Welcome to the home page</h2>
       <p>
         {" "}

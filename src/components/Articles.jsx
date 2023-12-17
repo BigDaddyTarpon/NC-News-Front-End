@@ -3,12 +3,13 @@ import { UserContext, } from "../contexts/UserContext";
 import { getAllArticles } from "../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
 import ArticleOptionsNavbar from "./ArticleOptionsNavbar";
+import { DarkModeContext } from "../contexts/DarkModeContext";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const topic = searchParams.get("topic");
-
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [order, setOrder] = useState("asc");
@@ -34,23 +35,23 @@ function Articles() {
   }
 
   return (
-    <>
+    <div className={`articles-page-${darkMode}`}>
       <ArticleOptionsNavbar
         order={order}
         setOrder={setOrder}
         sort={sort}
         setSort={setSort}
       />
-      <h2>
+      <h2 className={`h2-${darkMode}`}>
         {" "}
         There are currently {articles.length} articles, here is a summary of
         each.
       </h2>
-      <h3>Click one to focus on it and see the article!</h3>
-      <ul>
+      <h3 className={`h3-${darkMode}`}>Click one to focus on it and see the article!</h3>
+      <ul className={`ul-${darkMode}`}>
         {articles.map((article) => {
           return (
-            <li key={article.article_id} className="ListItemArticles">
+            <li key={article.article_id} className={`ListItemArticles-${darkMode}`}>
               <Link to={`/articles/${article.article_id}`}>
                 <p className="ListItemInnerArticles">
                   Article Title: {article.title}
@@ -67,7 +68,7 @@ function Articles() {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 
