@@ -48,21 +48,22 @@ select:focus {
 }
 .Sticky-fixed-header-container-light {
   position: sticky;
-  top: 0;
+  top: 0px;
   background-color: black;
   z-index: 1;
+  padding: 3px;
   
 }
 .Sticky-fixed-header-container-dark {
   position: sticky;
-  top: 0;
+  top: 0px;
   background-color:black;
   z-index: 1;
   
 }
 .ArticleOptionsNavbar-grid-container-light {
   position: sticky;
-  top: 0%;
+  top: 0rem;
   /* background-color: white; */
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
@@ -71,8 +72,8 @@ select:focus {
   background-color: white;
 }
 .ArticleOptionsNavbar-grid-container-dark {
-  position: fixed;
-  top:5%;
+  position: sticky;
+  top:0rem;
   /* background-color: white; */
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
@@ -232,6 +233,7 @@ ul {
   z-index: 5;
   background-color:white;
   color: black;
+  padding: 1.5rem;
 }
 .article-button-container-dark {
   position: sticky;
@@ -239,6 +241,7 @@ ul {
   z-index: 5;
   background-color: black;
   color: white;
+  padding-bottom: 2rem;
 }
 
 #add-new-comment-buttons-and-form-sticky-container-light {
