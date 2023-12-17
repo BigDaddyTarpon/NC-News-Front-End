@@ -71,8 +71,8 @@ select:focus {
   background-color: white;
 }
 .ArticleOptionsNavbar-grid-container-dark {
-  position: fixed;
-  top:5%;
+  position: sticky;
+  top:0%;
   /* background-color: white; */
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
